@@ -1,17 +1,20 @@
 import './App.css';
 import Controller from './Controller';
+import {makeMovementCall, makeCancelMovementCall} from './Movement';
 
 function movementCall(key) {
   // send api call to turn on thrusters in x direction
   if(key === 'w' || key === 'a' || key === 's' || key === 'd') {
-    console.log(key + ' is pressed');
+    //console.log(key + ' is pressed');
+    makeMovementCall(key);
   }
 }
 
 function cancelMovementCall(key) {
   // send api call to turn off thrusters in x direction
   if(key === 'w' || key === 'a' || key === 's' || key === 'd') {
-    console.log(key + ' is released');
+    //console.log(key + ' is released');
+    makeCancelMovementCall(key);
   }
 }
 
