@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import Rotor from "./components/Rotor";
 import CircleIcon from "@mui/icons-material/Circle";
 import { IoIosTimer } from "react-icons/io";
+import {makeDepthCall, makeSpokeCall} from './Movement';
 
 function Controller() {
   const [value, setValue] = useState(0.0);
@@ -19,18 +20,15 @@ function Controller() {
   const handleChange = (event, newValue) => {
     if (typeof newValue === "number") {
       setValue(newValue);
+      makeDepthCall(newValue);
     }
   };
 
   const spokeChange=()=>{
       setSpoke(!spoke);
-      if(spoke){
-          console.log("Spoke open")
-      }
-      else{
-          console.log("Spoke close")
-      }
+      makeSpokeCall(spoke);
   }
+  
   return (
     <>
       <CssBaseline />
@@ -67,9 +65,9 @@ function Controller() {
           <Slider
             value={value}
             min={0.0}
-            step={0.99}
+            step={0.1}
             orientation="vertical"
-            max={100}
+            max={4}
             onChange={handleChange}
             valueLabelDisplay="auto"
             aria-labelledby="non-linear-slider"
