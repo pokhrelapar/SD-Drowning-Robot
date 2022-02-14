@@ -6,19 +6,19 @@ export function makeMovementCall(key) {
     switch (key) {
         case "w":
             console.log("moving forward");
-            //tellRobotToMove(key);
+            tellRobotToMove(key);
             break;
         case "a":
             console.log("moving left");
-            //tellRobotToMove(key);
+            tellRobotToMove(key);
             break;
         case "s":
             console.log("moving backwards");
-            //tellRobotToMove(key);
+            tellRobotToMove(key);
             break;
         case "d":
             console.log("moving right");
-            //tellRobotToMove(key);
+            tellRobotToMove(key);
             break;
         default:
             break;
@@ -26,8 +26,8 @@ export function makeMovementCall(key) {
 }
 
 async function tellRobotToMove(key) {
-    const response = await axios.post("https://urlhere.com/start", {
-        headers: {"Direction":key}
+    const response = await axios.post("http://localhost:9000/", {
+        data: {"Action":"start","Direction":key}
     });
 }
 
@@ -35,19 +35,19 @@ export function makeCancelMovementCall(key) {
     switch (key) {
         case "w":
             console.log("stop moving forward");
-            //tellRobotToStopMove(key);
+            tellRobotToStopMove(key);
             break;
         case "a":
             console.log("stop moving left");
-            //tellRobotToStopMove(key);
+            tellRobotToStopMove(key);
             break;
         case "s":
             console.log("stop moving backwards");
-            //tellRobotToStopMove(key);
+            tellRobotToStopMove(key);
             break;
         case "d":
             console.log("stop moving right");
-            //tellRobotToStopMove(key);
+            tellRobotToStopMove(key);
             break;
         default:
             break;
@@ -55,19 +55,19 @@ export function makeCancelMovementCall(key) {
 }
 
 async function tellRobotToStopMove(key) {
-    const response = await axios.post("https://urlhere.com/stop", {
-        headers: {"Direction":key}
+    const response = await axios.post("http://localhost:9000/", {
+        data: {"Action":"stop", "Direction":key}
     });
 }
 
 export function makeDepthCall(depth) {
     console.log(`Moving to ${depth} ft deep`);
-    //tellRobotToChangeDepth(depth);
+    tellRobotToChangeDepth(depth);
 }
 
 async function tellRobotToChangeDepth(depth) {
-    const response = await axios.post("https://urlhere.com/depth", {
-        headers: {"Depth":depth}
+    const response = await axios.post("http://localhost:9000/", {
+        data: {"Action":"depth", "Depth":depth}
     });
 
     console.log(response);
@@ -75,11 +75,11 @@ async function tellRobotToChangeDepth(depth) {
 
 export function makeSpokeCall(open) {
     console.log(`${open ? "Opening" : "Closing"} spokes`);
-    //tellRobotToOpenOrCloseSpokes(openOrClose);
+    tellRobotToOpenOrCloseSpokes(open);
 }
 
 async function tellRobotToOpenOrCloseSpokes(open) {
-    const response = await axios.post("https://urlhere.com/spokes", {
-        headers: {"State":open}
+    const response = await axios.post("http://localhost:9000/", {
+        data: {"Action":"spokes","State":open}
     });
 }
