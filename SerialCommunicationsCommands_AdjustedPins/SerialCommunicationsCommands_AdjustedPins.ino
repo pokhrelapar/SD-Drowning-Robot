@@ -30,38 +30,38 @@ int rightThrusterPowerPin = 4;
 Servo rightServo;
 
 int dumbServoPoopyPin = 12;
-Server dumbServoPoopy;
+Servo dumbServoPoopy;
 
 int pumpPin = 2;
 
-int reserved_relay = 5
+int reserved_relay = 5;
 
 int forwardSignal = 1700;
 int backwardSignal = 1300;
 int leftSignal = 2000;
 int rightSignal = 2000;
-int offLeftThrusterSignal = 1500; // appropriate turn off signal
-int offRightThrusterSignal = 1490; // right thruster is turning off with this signal instead of 1500
+int offLeftSignal = 1500; // appropriate turn off signal
+int offRightSignal = 1490; // right thruster is turning off with this signal instead of 1500
 
-int ballast1ValveWaterEntry = VALVE_3;
-int ballast1ValveWaterExit = VALVE_1;
-int ballast1ValveCO2Entry = VALVE_7;
-int ballast1ValveCO2Exit = VALVE_13;
+int ballast1WaterEntry = VALVE_3;
+int ballast1WaterExit = VALVE_1;
+int ballast1CO2Entry = VALVE_7;
+int ballast1CO2Exit = VALVE_13;
 
-int ballast2ValveWaterEntry = VALVE_4;
-int ballast2ValveWaterExit = VALVE_2;
-int ballast2ValveCO2Entry = VALVE_8;
-int ballast2ValveCO2Exit = VALVE_14;
+int ballast2WaterEntry = VALVE_4;
+int ballast2WaterExit = VALVE_2;
+int ballast2CO2Entry = VALVE_8;
+int ballast2CO2Exit = VALVE_14;
 
-int ballast3ValveWaterEntry = VALVE_5;
-int ballast3ValveWaterExit = VALVE_11;
-int ballast3ValveCO2Entry = VALVE_9;
-int ballast3ValveCO2Exit = VALVE_15;
+int ballast3WaterEntry = VALVE_5;
+int ballast3WaterExit = VALVE_11;
+int ballast3CO2Entry = VALVE_9;
+int ballast3CO2Exit = VALVE_15;
 
-int ballast4ValveWaterEntry = VALVE_6;
-int ballast4ValveWaterExit = VALVE_12;
-int ballast4ValveCO2Entry = VALVE_10;
-int ballast4ValveCO2Exit = VALVE_16;
+int ballast4WaterEntry = VALVE_6;
+int ballast4WaterExit = VALVE_12;
+int ballast4CO2Entry = VALVE_10;
+int ballast4CO2Exit = VALVE_16;
 
 void setup() {
   // put your setup code here, to run once:
