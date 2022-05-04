@@ -2,7 +2,7 @@
 
 const axios = require("axios");
 //"http://169.254.21.213:9000/"
-const addr = "http://127.0.0.1:9000/"
+const addr = "http://169.254.21.213:9000/"
 
 export async function getData() {
     try {

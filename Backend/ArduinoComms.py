@@ -1,7 +1,8 @@
 import serial
 import time
+import json
 
-arduino_controls = serial.Serial(port='COM4', baudrate=9600, timeout=0.1)
+arduino_controls = serial.Serial(port='/dev/ttyACM0', baudrate=9600, timeout=0.1)
 
 commands = {'Start': 0x10, 'Stop': 0x20, 'Fill': 0x30, 'StopFill': 0x40, 'Spokes': 0x50}
 
@@ -18,6 +19,7 @@ spokes_data = {False: 0x00, True: 0x01}
 
 
 def write(command):
+	command = chr(command) + '\r'
 	arduino_controls.write(bytes(command, 'utf-8'))
 	return
 	
@@ -47,7 +49,7 @@ def make_spokes_command(state):
 	return
 
 def handle_request(request):
-	json_string = request[8:len(data_string)-1]
+	json_string = request[8:len(request)-1]
 	d = json.loads(json_string)
 	
 	action = d['Action']
